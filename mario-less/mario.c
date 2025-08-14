@@ -10,9 +10,9 @@ int main(void)
     }
     while(altura < 1);
 
-    for (int i = 1; i <= altura; i++)
+    for (int j = 1; j <= altura; j++)
     {
-        for (int j = 0; j < i; j++)
+        for (int i = 0; i < j; i++)
         {
             printf("#");
         }
