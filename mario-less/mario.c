@@ -12,11 +12,19 @@ int main(void)
 
     for (int j = 1; j <= altura; j++)
     {
+
+        for (int k = 0; k < altura - j; k++)
+        {
+            printf(" ");
+        }
+
         for (int i = 0; i < j; i++)
         {
             printf("#");
         }
+
         printf("\n");
+        
     }
 
 }
