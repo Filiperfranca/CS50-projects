@@ -8,7 +8,7 @@ int main(void)
     #define dimes 10
     #define nickels 5
     #define pennies 1
-    
+
     int troco;
     do
     {
@@ -16,8 +16,22 @@ int main(void)
     }
     while (troco < 0);
 
-    int moedas usadas = 0
+    int moedas_usadas = 0;
 
+    troco / quarters = moedas_usadas;
 
+    troco % quarters = troco;
+
+    troco / dimes + moedas_usadas = moedas_usadas;
+
+    troco % dimes = troco;
+
+    troco / nickels + moedas_usadas = moedas_usadas;
+
+    troco % nickels = troco;
+
+    troco / pennies + moedas_usadas = moedas_usadas;
+
+    troco % pennies = troco;
 
 }
