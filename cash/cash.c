@@ -18,20 +18,21 @@ int main(void)
 
     int moedas_usadas = 0;
 
-    troco / quarters = moedas_usadas;
+    moedas_usadas = troco / quarters;
 
-    troco % quarters = troco;
+    troco = troco % quarters;
 
-    troco / dimes + moedas_usadas = moedas_usadas;
+    moedas_usadas = moedas_usadas + (troco / dimes);
 
-    troco % dimes = troco;
+    troco = troco % dimes;
 
-    troco / nickels + moedas_usadas = moedas_usadas;
+    moedas_usadas = moedas_usadas + (troco / nickels);
 
-    troco % nickels = troco;
+    troco = troco % nickels;
 
-    troco / pennies + moedas_usadas = moedas_usadas;
+    moedas_usadas = moedas_usadas + (troco / pennies);
 
-    troco % pennies = troco;
+    troco = troco % pennies;
 
+    printf("foram usadas %i moedas\n", moedas_usadas);
 }
