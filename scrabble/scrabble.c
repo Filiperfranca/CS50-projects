@@ -24,7 +24,7 @@ int main(void)
 
     for (int j = 0; jogador2[j] != '\0'; j++)
     {
-        chat letra_atual2 = jogador2[j]
+        char letra_atual2 = jogador2[j];
 
         if (isalpha(letra_atual2))
         {
