@@ -36,7 +36,7 @@ int main(void)
 
     if (pontos_jogador1 < pontos_jogador2)
     {
-        printf("jogador 2 venceu!\n");
+        printf("Player 2 wins!\n");
         printf("pontuação:\n");
         printf("jogador 2: %i\n", pontos_jogador2);
         printf("jogador 1: %i\n", pontos_jogador1);
@@ -50,7 +50,7 @@ int main(void)
     }
     else
     {
-        printf("empate\n");
+        printf("Tie!\n");
         printf("pontuação:\n");
         printf("jogador 1: %i\n", pontos_jogador1);
         printf("jogador 2: %i\n", pontos_jogador2);
