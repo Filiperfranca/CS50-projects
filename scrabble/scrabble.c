@@ -16,13 +16,20 @@ int main(void)
     {
         char letra_atual1 = jogador1[i];
 
-        if (i)
-        pontos_jogador1 += pontos[toupper(jogador1[i]) - 'A']; // toupper deixa todas as entradas em maiusculo, e então, na tablesa ASCII ele remove o numero A 97 criando uma ordem de 0-26 para usarmos de indice para soma de pontos
+        if (isalpha(letra_atual1))
+        {
+            pontos_jogador1 += pontos[toupper(jogador1[i]) - 'A']; // toupper deixa todas as entradas em maiusculo, e então, na tablesa ASCII ele remove o numero A 97 criando uma ordem de 0-26 para usarmos de indice para soma de pontos
+        }
     }
 
     for (int j = 0; jogador2[j] != '\0'; j++)
     {
-        pontos_jogador2 += pontos[toupper(jogador2[j]) - 'A'];
+        chat letra_atual2 = jogador2[j]
+
+        if (isalpha(letra_atual2))
+        {
+            pontos_jogador2 += pontos[toupper(jogador2[j]) - 'A'];
+        }
     }
 
     printf("\n"); // pra ficar mais bonito
@@ -36,7 +43,7 @@ int main(void)
     }
     else if (pontos_jogador2 < pontos_jogador1)
     {
-        printf("jogador 1 venceu!\n");
+        printf("Player 1 wins!\n");
         printf("pontuação:\n");
         printf("jogador 1: %i\n", pontos_jogador1);
         printf("jogador 2: %i\n", pontos_jogador2);
