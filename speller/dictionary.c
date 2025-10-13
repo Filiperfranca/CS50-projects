@@ -35,8 +35,34 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    // TODO
-    return false;
+    FILE *dicionario = fopen(dictionary, "r");
+    if (dicionario == NULL)
+    {
+        return false;
+    }
+
+    char buffer[LENGTH + 1];
+
+    while (fscanf(dicionario, "%s", buffer) != EOF)
+    {
+        node *nova_palavra = malloc(sizeof(node));
+        if (nova_palavra == NULL)
+        {
+            fclose(dicionario);
+            return false;
+        }
+
+        strcpy(nova_palavra->word, buffer);
+
+        unsigned int indice = hash(nova_palavra->word);
+
+        nova_palavra->next = table[indice];
+        table[indice] = nova_palavra;
+    }
+
+    fclose(dicionario);
+
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
