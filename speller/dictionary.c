@@ -2,6 +2,7 @@
 
 #include <ctype.h>
 #include <stdbool.h>
+#include <string.h>
 
 #include "dictionary.h"
 
@@ -28,8 +29,21 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO: Improve this hash function
-    return toupper(word[0]) - 'A';
+    int tamanho = strlen(word);
+    long soma = 0;
+
+    for (int i = 0; i < tamanho; i++)
+    {
+        soma += toupper(word[i]);
+    }
+
+    if (tamanho == 0)
+    {
+        return 0;
+    }
+
+    long media = soma / tamanho;
+    return media % N;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
