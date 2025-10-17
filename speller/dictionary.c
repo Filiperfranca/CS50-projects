@@ -30,7 +30,10 @@ bool check(const char *word)
 
     while(cursor != NULL)
     {
-        strcmp(word, )
+        if (strcmp(toupper(word), toupper(nova_palavra->word)) = 0)
+        {
+            return true;
+        }
     }
 
     return false;
