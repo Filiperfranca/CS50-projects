@@ -111,11 +111,11 @@ bool unload(void)
 
         while (cursor != NULL)
         {
-            node *temp = cursor->next;
+            node *temp = cursor;
 
-            free(cursor);
+            free(temp);
 
-            
+            cursor = cursor->next;
         }
     }
     return false;
