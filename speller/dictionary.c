@@ -30,12 +30,12 @@ bool check(const char *word)
 
     while(cursor != NULL)
     {
-        if (strcmp(toupper(word), toupper(nova_palavra->word)) = 0)
+        if (strcasecmp(word, cursor->word) == 0)
         {
             return true;
         }
 
-        cursor = nova_palavra->next;
+        cursor = cursor->next;
     }
 
     return false;
