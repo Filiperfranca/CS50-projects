@@ -26,7 +26,12 @@ bool check(const char *word)
 {
     unsigned int indice = hash(word);
 
-    while()
+    node *cursor = table[indice];
+
+    while(cursor != NULL)
+    {
+        strcmp(word, )
+    }
 
     return false;
 }
