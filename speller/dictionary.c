@@ -6,6 +6,8 @@
 
 #include "dictionary.h"
 
+int palavras_contadas = 0;
+
 // Represents a node in a hash table
 typedef struct node
 {
@@ -22,7 +24,10 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
+    unsigned int indice = hash(word);
+
+    while()
+
     return false;
 }
 
@@ -66,6 +71,7 @@ bool load(const char *dictionary)
             return false;
         }
 
+        palavras_contadas++;
         strcpy(nova_palavra->word, buffer);
 
         unsigned int indice = hash(nova_palavra->word);
@@ -83,7 +89,7 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
-    return 0;
+    return palavras_contadas;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
