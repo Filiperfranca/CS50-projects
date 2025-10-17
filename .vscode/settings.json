@@ -4,6 +4,7 @@
     "python-envs.pythonProjects": [],
     "files.associations": {
         "dictionary.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "string.h": "c"
     }
 }

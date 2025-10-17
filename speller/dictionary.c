@@ -1,10 +1,10 @@
 // Implements a dictionary's functionality
+#include <ctype.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <strings.h> 
-#include <ctype.h>
-#include <stdbool.h>
+#include <strings.h>
 
 #include "dictionary.h"
 
@@ -30,7 +30,7 @@ bool check(const char *word)
 
     node *cursor = table[indice];
 
-    while(cursor != NULL)
+    while (cursor != NULL)
     {
         if (strcasecmp(word, cursor->word) == 0)
         {
@@ -107,7 +107,7 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    for (int i= 0; i < N; i++)
+    for (int i = 0; i < N; i++)
     {
         node *cursor = table[i];
 
