@@ -34,6 +34,8 @@ bool check(const char *word)
         {
             return true;
         }
+
+        cursor = nova_palavra->next;
     }
 
     return false;
