@@ -7,4 +7,6 @@ while True:
 
 for altura in alturas:
     for espaco in altura - 1:
+        print(" ", end="")
+        
 
