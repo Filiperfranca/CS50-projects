@@ -1,8 +1,10 @@
 while True:
-    altura = int(input("digite a altura: "))
+    alturas = int(input("digite a altura: "))
 
-    if 1 <= altura <= 8:
+    if 1 <= alturas <= 8:
         break
     print("digite um valor entre 1 e 8")
 
-print(f"log: o valor escolhido foi {altura}")
+for altura in alturas:
+    for espaco in altura-1:
+
