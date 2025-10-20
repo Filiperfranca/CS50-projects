@@ -6,7 +6,7 @@ while True:
     print("digite um valor entre 1 e 8")
 
 for altura in range(alturas):
-    for espaco in range(alturas - 1):
+    for espaco in range(altura):
         print(" ", end="")
 
     for hashtags in range(altura):
