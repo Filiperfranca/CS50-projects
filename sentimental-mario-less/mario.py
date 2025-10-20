@@ -1,9 +1,10 @@
 while True:
-    alturas = int(input("digite a altura: "))
+    try:
+        alturas = int(input("digite a altura: "))
 
-    if 1 <= alturas <= 8:
-        break
-    else:
+        if 1 <= alturas <= 8:
+            break
+    except ValueError:
         print("digite um valor entre 1 e 8")
 
 for altura in range(alturas):
