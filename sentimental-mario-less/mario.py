@@ -5,10 +5,10 @@ while True:
         break
     print("digite um valor entre 1 e 8")
 
-for altura in alturas:
-    for espaco in altura - 1:
+for altura in range(alturas):
+    for espaco in range(altura - 1):
         print(" ", end="")
 
-    for hashtags in altura:
+    for hashtags in range(altura):
         print("#")
 
