@@ -6,5 +6,5 @@ while True:
     print("digite um valor entre 1 e 8")
 
 for altura in alturas:
-    for espaco in altura-1:
+    for espaco in altura - 1:
 
