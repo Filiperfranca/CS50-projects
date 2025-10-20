@@ -15,4 +15,3 @@ for altura in range(alturas):
         print("#", end="")
 
     print("#")
-
