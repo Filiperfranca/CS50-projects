@@ -1,5 +1,5 @@
-while true:
-    altura = int(input("digite a altura: "))
+while True:
+    atura = int(input("digite a altura: "))
 
     if 1 <= altura <= 8:
         break
