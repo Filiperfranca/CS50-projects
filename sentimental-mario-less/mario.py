@@ -3,7 +3,8 @@ while True:
 
     if 1 <= alturas <= 8:
         break
-    print("digite um valor entre 1 e 8")
+    else:
+        print("digite um valor entre 1 e 8")
 
 for altura in range(alturas):
     for espaco in range((alturas - altura) - 1):
