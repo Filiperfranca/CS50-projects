@@ -9,6 +9,8 @@ for altura in range(alturas):
     for espaco in range(altura - 1):
         print(" ", end="")
 
-    for hashtags in range(altura):
-        print("#")
+    for hashtags in range(altura - 1):
+        print("#", end="")
+
+    print("#")
 
