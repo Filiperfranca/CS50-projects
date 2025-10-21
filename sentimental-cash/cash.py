@@ -17,6 +17,8 @@ while True:
     except ValueError:
         print("digite um valor acima de 0")
 
+troco = round(troco * 100)
+
 
 moedas_usadas = troco / quarters
 troco = troco % quarters
