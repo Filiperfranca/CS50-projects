@@ -18,3 +18,11 @@ while True:
         print("digite um valor acima de 0")
 
 
+moedas_usadas = troco / quarters
+troco = troco % quarters
+
+moedas_usadas += troco / dimes
+troco = troco % dimes
+
+moedas_usadas += troco / nickels
+troco = troco % dimes
