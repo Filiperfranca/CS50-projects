@@ -26,4 +26,4 @@ elif resultado < 1:
     print("Before Grade 1")
 
 else:
-    print(f"grade {int(round(resultado))}")
+    print(f"Grade {int(round(resultado))}")
