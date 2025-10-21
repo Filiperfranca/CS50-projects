@@ -5,7 +5,12 @@ pennies = 1
 
 while True:
     try:
-        troco = input("digite o valor do troco: ")
+        troco = int(input("digite o valor do troco: "))
 
-    if troco 
+    if troco > 0:
+        break
 
+    except ValueError:
+        print("digite um valor acima de 0")
+
+print(troco)
