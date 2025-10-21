@@ -11,11 +11,12 @@ while True:
 
         if troco > 0:
             break
+
         else:
             print("digite um valor acima de 0")
 
     except ValueError:
-        print("digite um valor acima de 0")
+        print("digite um valor válido")
 
 troco = round(troco * 100)
 
