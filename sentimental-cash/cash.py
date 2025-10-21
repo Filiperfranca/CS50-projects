@@ -20,16 +20,16 @@ while True:
 troco = round(troco * 100)
 
 
-moedas_usadas = troco / quarters
+moedas_usadas = troco // quarters
 troco = troco % quarters
 
-moedas_usadas += troco / dimes
+moedas_usadas += troco // dimes
 troco = troco % dimes
 
-moedas_usadas += troco / nickels
+moedas_usadas += troco // nickels
 troco = troco % nickels
 
-moedas_usadas += troco / pennies
+moedas_usadas += troco // pennies
 troco = troco % pennies
 
 print(f"foram usados {moedas_usadas} moedas para o troco")
