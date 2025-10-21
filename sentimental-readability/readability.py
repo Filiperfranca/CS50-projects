@@ -6,4 +6,10 @@ frases = 0
 
 for char in texto:
     if char.isalpha():
-        
+        letras += 1
+
+    if char.isspace():
+        palavras += 1
+
+    if char == '.' or char == '!' or char == '?':
+        frases += 1
