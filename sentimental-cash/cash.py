@@ -5,7 +5,7 @@ pennies = 1
 
 while True:
     try:
-        troco = int(input("digite o valor do troco: "))
+        troco = float(input("digite o valor do troco: "))
 
         if troco > 0:
             break
