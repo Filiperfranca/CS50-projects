@@ -7,8 +7,8 @@ while True:
     try:
         troco = int(input("digite o valor do troco: "))
 
-    if troco > 0:
-        break
+        if troco > 0:
+            break
 
     except ValueError:
         print("digite um valor acima de 0")
