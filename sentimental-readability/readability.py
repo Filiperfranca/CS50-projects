@@ -4,5 +4,6 @@ letras = 0
 palavras = 1
 frases = 0
 
-for cacterer in texto:
-    
+for char in texto:
+    if char.isalpha():
+        
