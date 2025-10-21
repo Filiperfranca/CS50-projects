@@ -7,7 +7,7 @@ moedas_usadas = 0
 
 while True:
     try:
-        troco = float(input("digite o valor do troco: "))
+        troco = int(input("digite o valor do troco: "))
 
         if troco > 0:
             break
