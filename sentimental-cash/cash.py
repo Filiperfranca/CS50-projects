@@ -25,4 +25,9 @@ moedas_usadas += troco / dimes
 troco = troco % dimes
 
 moedas_usadas += troco / nickels
-troco = troco % dimes
+troco = troco % nickels
+
+moedas_usadas += troco / pennies
+troco = troco % pennies
+
+print(f"foram usados {moedas_usadas} moedas para o troco")
