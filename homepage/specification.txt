@@ -1,0 +1,11 @@
+HTML tags used:
+nav, div, ul, li, a, button, h1, h2, p, script, link, span.
+
+CSS properties used:
+background-color, font-family, color, text-align, font-size, border.
+
+Bootstrap:
+I used the Bootstrap Navbar component to create a responsive navigation menu that appears on all pages.
+
+JavaScript:
+I created a script on the contact page that listens for a click event on a button to reveal my email address dynamically.
