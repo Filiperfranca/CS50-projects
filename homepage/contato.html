@@ -34,15 +34,16 @@
         <h2>My e-mail</h2>
         <p id="email-local">click the button to reveal the email.</p>
         <button id="botao">Reveal</button>
+        <script>
+            let botao = document.querySelector('#botao');
+            let emailLocal = document.querySelector('#email-local');
+
+
+            botao.addEventListener('click', function()
+            {
+                emailLocal.innerHTML = 'dev.filipefranca@gmail.com';
+            });
+        </script>
     </body>
-    <script>
-        let botao = document.querySelector('#botao');
-        let emailLocal = document.querySelector('#email-local');
-
-
-        botao.addEventListener('click', function()
-        {
-            emailLocal.innerHTML = 'dev.filipefranca@gmail.com';
-        });
-    </script>
 </html>
+    
