@@ -17,9 +17,25 @@ def main():
     with open(sys.argv[2]) as file:
         dnabase = file.read()
 
-    # TODO: Find longest match of each STR in DNA sequence
+    keys = database[0].keys()
+    chaves = []
+    for key in keys:
+        if key != "name":
+            chaves.append(key)
+    STRs = {}
+    for strs in chaves:
+        STRs[strs] = longest_match(dnabase, strs)
 
-    # TODO: Check database for matching profiles
+    for pessoas in database:
+        match_encontrado = True
+        for strss in STRs:
+            if int(pessoas[strss]) != STRs[strss]:
+                match_encontrado = False
+                break
+        if match_encontrado == True:
+            print(f"{pessoas["name"]}")
+            sys.exit(0)
+    print("No match")
 
     return
 
