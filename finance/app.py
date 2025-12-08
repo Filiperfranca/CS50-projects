@@ -58,9 +58,12 @@ def index():
             "total": valor_total
         })
 
-    user_cash_db = db.execute("SELECT cash FROM users WHERE id)
+    user_cash_db = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+    user_cash = user_cash_db[0]["cash"]
 
-    return apology("TODO")
+    grand_total += user_cash
+
+    return render_template("index.html", stocks=portfolio, cash=user_cash, total=grand_total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
