@@ -70,7 +70,9 @@ def buy():
         if saldoUser < custo:
             return apology ("Not enough cash")
         else:
-            
+            db.execute("UPDATE users SET cash = cash - ? WHERE id = ?", custo, session["user_id"])
+
+            db.execute()
 
     return apology("TODO")
 
