@@ -53,6 +53,8 @@ def buy():
             shares = int(sharesStr)
             if shares <= 0:
                 return apology("Your action number cannot be 0")
+        except ValueError:
+            return apology("Enter a valid value for the shares.")
 
     return apology("TODO")
 
