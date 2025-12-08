@@ -45,7 +45,8 @@ def buy():
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
 
-        
+        if not symbol:
+            return apology(")
     return apology("TODO")
 
 
