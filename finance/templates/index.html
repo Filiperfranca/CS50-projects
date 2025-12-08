@@ -22,6 +22,7 @@
             <td>{{ stock.name }}</td>
             <td>{{ stock.shares }}</td>
             <td>{{ stock.price | usd }}</td>
+            <td>{{ stock.total | usd }}</td>
         </tr>
         {% endfor %}
     </tbody>
