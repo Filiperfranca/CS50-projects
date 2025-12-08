@@ -18,11 +18,22 @@
     <tbody>
         {% for stock in stocks %}
         <tr>
-            <td>{{ quote.symbol }}</td>
-            <td>{{ quote.name }}</td>
-            <td>{{ quote.price | usd }}</td>
+            <td>{{ stock.symbol }}</td>
+            <td>{{ stock.name }}</td>
+            <td>{{ stock.shares }}</td>
+            <td>{{ stock.price | usd }}</td>
         </tr>
-        {% }
+        {% endfor %}
     </tbody>
+    <tfoot>
+        <tr>
+            <td>Cash</td>
+            <td>{{ cash | usd }}</td>
+        </tr>
+        <tr>
+            <td>TOTAL</td>
+            <td>{{ total | usd}}</td>
+        </tr>
+    </tfoot>
 </table>
 {% endblock %}
