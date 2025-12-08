@@ -72,9 +72,11 @@ def buy():
         else:
             db.execute("UPDATE users SET cash = cash - ? WHERE id = ?", custo, session["user_id"])
 
-            db.execute()
+            db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (?, ?, ?, ?)", session["user_id"], symbol, shares, price)
 
-    return apology("TODO")
+        return redirect("/")
+
+    return render_template("buy.html")
 
 
 @app.route("/history")
