@@ -50,7 +50,15 @@ def index():
 
         grand_total += valor_total
 
-        portfolio.append
+        portfolio.append({
+            "symbol": symbol,
+            "name": stock["name"],
+            "shares": linha["total_shares"],
+            "price": stock["price"],
+            "total": valor_total
+        })
+
+    user_cash_db = db.execute("SELECT cash FROM users WHERE id)
 
     return apology("TODO")
 
