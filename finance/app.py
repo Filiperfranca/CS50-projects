@@ -37,7 +37,12 @@ def index():
     """Show portfolio of stocks"""
     linhas = db.execute("SELECT symbol, SUM(shares) AS total_shares FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
 
-    
+    portfolio = []
+    grand_total = 0
+
+    for linha in linhas:
+
+        
 
     return apology("TODO")
 
