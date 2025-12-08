@@ -38,6 +38,7 @@ def index():
     linhas = db.execute("SELECT symbol, SUM(shares) AS total_shares FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
 
     
+
     return apology("TODO")
 
 
