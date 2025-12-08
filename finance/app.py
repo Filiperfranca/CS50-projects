@@ -62,6 +62,15 @@ def buy():
 
         saldo = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
+        price = quote["price"]
+
+        custo = (price * shares)
+
+        if cash < custo:
+            return apology ("Not enough cash")
+
+        
+
     return apology("TODO")
 
 
