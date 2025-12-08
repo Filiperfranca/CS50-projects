@@ -43,13 +43,17 @@ def index():
 def buy():
     if request.method == "POST":
         symbol = request.form.get("symbol")
-        shares = request.form.get("shares")
+        sharesStr = request.form.get("shares")
 
         if not symbol:
             return apology("place a symbol")
-        if not shares:
+        if not sharesStr:
             return apology("choose a number of shares")
-        
+        try:
+            shares = int(sharesStr)
+            if shares <= 0:
+                return apology("Your action number cannot be 0")
+
     return apology("TODO")
 
 
