@@ -49,6 +49,7 @@ def buy():
             return apology("place a symbol")
         if not shares:
             return apology("choose a number of shares")
+        
     return apology("TODO")
 
 
