@@ -47,8 +47,8 @@ def buy():
 
         if not symbol:
             return apology("place a symbol")
-        check = lookup(symbol)
-        if check is None:
+        quote = lookup(symbol)
+        if quote is None:
             return apology("Invalid symbol")
 
         if not sharesStr:
@@ -61,7 +61,6 @@ def buy():
             return apology("Enter a valid value for the shares.")
 
         saldo = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-        
 
     return apology("TODO")
 
