@@ -42,7 +42,11 @@ def index():
 
     for linha in linhas:
 
-        
+        symbol = linha["symbol"]
+
+        stock = lookup[symbol]
+
+        valor_total = (stock["price"] * linhas["total_shares"])
 
     return apology("TODO")
 
