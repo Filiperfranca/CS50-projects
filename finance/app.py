@@ -60,6 +60,9 @@ def buy():
         except ValueError:
             return apology("Enter a valid value for the shares.")
 
+        saldo = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        
+
     return apology("TODO")
 
 
