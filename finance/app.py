@@ -47,6 +47,10 @@ def buy():
 
         if not symbol:
             return apology("place a symbol")
+        check = lookup(symbol)
+        if check is None:
+            return apology("Invalid symbol")
+
         if not sharesStr:
             return apology("choose a number of shares")
         try:
