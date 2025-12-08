@@ -66,10 +66,8 @@ def buy():
 
         custo = (price * shares)
 
-        if cash < custo:
+        if saldo < custo:
             return apology ("Not enough cash")
-
-        
 
     return apology("TODO")
 
