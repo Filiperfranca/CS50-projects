@@ -44,9 +44,9 @@ def index():
 
         symbol = linha["symbol"]
 
-        stock = lookup[symbol]
+        stock = lookup(symbol)
 
-        valor_total = (stock["price"] * linhas["total_shares"])
+        valor_total = (stock["price"] * linha["total_shares"])
 
         grand_total += valor_total
 
