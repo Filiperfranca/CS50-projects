@@ -5,5 +5,24 @@
 {% endblock %}
 
 {% block main %}
-
+<table>
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>TOTAL</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stock in stocks %}
+        <tr>
+            <td>{{ quote.symbol }}</td>
+            <td>{{ quote.name }}</td>
+            <td>{{ quote.price | usd }}</td>
+        </tr>
+        {% }
+    </tbody>
+</table>
 {% endblock %}
