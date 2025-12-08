@@ -48,6 +48,10 @@ def index():
 
         valor_total = (stock["price"] * linhas["total_shares"])
 
+        grand_total += valor_total
+
+        portfolio.append
+
     return apology("TODO")
 
 
