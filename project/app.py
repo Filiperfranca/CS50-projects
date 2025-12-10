@@ -38,7 +38,7 @@ def index():
     # Original index deleted to create a completely new one.
     user_habits = db.execute("SELECT * FROM habits WHERE user_id = ?", session["user_id"]) #we pull user-created habits
 
-    return render_template("index.html" habits=user_habit) # Python variables for HTML from the finance project removed, now added those from habit
+    return render_template("index.html", habits=user_habit) # Python variables for HTML from the finance project removed, now added those from habit, another syntax problem, the 's' was missing at the end of habit's'
 
 @app.route("/add", methods=["GET", "POST"]) #as we are dealing with a form we need the POST route
 @login_required # only with logged in user
