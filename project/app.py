@@ -43,7 +43,10 @@ def index():
 def add():
     # If the user sent the form (POST)
     if request.method == "POST":
-        
+        habit = request.form.get("habit") # send habit to backend
+
+        if not habit:
+            return apology("you cannot send an empty habit") # if the habit was sent empty
 
 # `@app.route buy` removed, completely useless.
 
