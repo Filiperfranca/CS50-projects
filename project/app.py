@@ -38,6 +38,10 @@ def index():
     # Original index deleted to create a completely new one.
     return render_template("index.html") # Python variables for HTML removed
 
+@app.route("/add", methods=["GET", "POST"]) #
+@login_required
+def add():
+
 
 # `@app.route buy` removed, completely useless.
 
