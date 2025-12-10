@@ -35,7 +35,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    # 
+    # Original index deleted to create a completely new one.
     return render_template("index.html") # Python variables for HTML removed
 
 
