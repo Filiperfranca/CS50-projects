@@ -122,22 +122,7 @@ def logout():
     return redirect("/")
 
 
-@app.route("/quote", methods=["GET", "POST"])
-@login_required
-def quote():
-    if request.method == "POST":
-        symbol = request.form.get("symbol")
-
-        if not symbol:
-            return apology("place a symbol")
-
-        quote = lookup(symbol)
-        if quote is None:
-            return apology("Invalid symbol")
-
-        return render_template("quoted.html", quote=quote)
-
-    return render_template("quote.html")
+# `@app.route quote` removed, also completely useless.
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -164,45 +149,4 @@ def register():
 
 
 
-@app.route("/sell", methods=["GET", "POST"])
-@login_required
-def sell():
-    """Sell shares of stock"""
-    user_symbol = db.execute("SELECT symbol FROM transactions WHERE user_id = ? GROUP BY symbol HAVING SUM(shares) > 0", session["user_id"])
-
-    if request.method == "POST":
-        symbol = request.form.get("symbol")
-        sharesStr = request.form.get("shares")
-
-        if not symbol:
-            return apology("place a symbol")
-        quote = lookup(symbol)
-        if quote is None:
-            return apology("Invalid symbol")
-
-        if not sharesStr:
-            return apology("choose a number of shares")
-        try:
-            shares = int(sharesStr)
-            if shares <= 0:
-                return apology("Your action number cannot be 0")
-        except ValueError:
-            return apology("Enter a valid value for the shares.")
-
-        sharesUser = db.execute("SELECT SUM(shares) FROM transactions WHERE symbol = ? AND user_id = ?", symbol, session["user_id"])
-        shares_user = sharesUser[0]["SUM(shares)"]
-
-        price = quote["price"]
-
-        ganho = (price * shares)
-
-        if shares_user < shares:
-            return apology("Please don't try to scam us.")
-        else:
-            db.execute("UPDATE users SET cash = cash + ? WHERE id = ?", ganho, session["user_id"])
-
-            db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (?, ?, ?, ?)", session["user_id"], symbol, -shares, price)
-
-        return redirect("/")
-
-    return render_template("sell.html", symbols=user_symbol)
+# `@app.route sell` removed, completely useless as well.
