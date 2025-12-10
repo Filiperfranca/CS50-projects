@@ -111,7 +111,19 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    return apology("TODO")
+    linhas = db.execute("SELECT * FROM transactions WHERE user_id = ? ORDER BY timestamp DESC", session["user_id"])
+    history = []
+
+    for linha in linhas:
+
+        history.append({
+            "symbol": linha["symbol"],
+            "shares": linha["shares"],
+            "price": linha["price"],
+            "date": linha["timestamp"]
+        })
+
+    return render_template("history.html", transactions=history)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -168,7 +180,7 @@ def logout():
 @login_required
 def quote():
     if request.method == "POST":
-        symbol = request.form.get("quote")
+        symbol = request.form.get("symbol")
 
         if not symbol:
             return apology("place a symbol")
@@ -210,4 +222,41 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    return apology("TODO")
+    user_symbol = db.execute("SELECT symbol FROM transactions WHERE user_id = ? GROUP BY symbol HAVING SUM(shares) > 0", session["user_id"])
+
+    if request.method == "POST":
+        symbol = request.form.get("symbol")
+        sharesStr = request.form.get("shares")
+
+        if not symbol:
+            return apology("place a symbol")
+        quote = lookup(symbol)
+        if quote is None:
+            return apology("Invalid symbol")
+
+        if not sharesStr:
+            return apology("choose a number of shares")
+        try:
+            shares = int(sharesStr)
+            if shares <= 0:
+                return apology("Your action number cannot be 0")
+        except ValueError:
+            return apology("Enter a valid value for the shares.")
+
+        sharesUser = db.execute("SELECT SUM(shares) FROM transactions WHERE symbol = ? AND user_id = ?", symbol, session["user_id"])
+        shares_user = sharesUser[0]["SUM(shares)"]
+
+        price = quote["price"]
+
+        ganho = (price * shares)
+
+        if shares_user < shares:
+            return apology("Please don't try to scam us.")
+        else:
+            db.execute("UPDATE users SET cash = cash + ? WHERE id = ?", ganho, session["user_id"])
+
+            db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (?, ?, ?, ?)", session["user_id"], symbol, -shares, price)
+
+        return redirect("/")
+
+    return render_template("sell.html", symbols=user_symbol)
