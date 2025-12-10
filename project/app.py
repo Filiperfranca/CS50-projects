@@ -35,35 +35,8 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    linhas = db.execute("SELECT symbol, SUM(shares) AS total_shares FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
-
-    portfolio = []
-    grand_total = 0
-
-    for linha in linhas:
-
-        symbol = linha["symbol"]
-
-        stock = lookup(symbol)
-
-        valor_total = (stock["price"] * linha["total_shares"])
-
-        grand_total += valor_total
-
-        portfolio.append({
-            "symbol": symbol,
-            "name": stock["name"],
-            "shares": linha["total_shares"],
-            "price": stock["price"],
-            "total": valor_total
-        })
-
-    user_cash_db = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-    user_cash = user_cash_db[0]["cash"]
-
-    grand_total += user_cash
-
-    return render_template("index.html", stocks=portfolio, cash=user_cash, total=grand_total)
+    # 
+    return render_template("index.html") # Python variables for HTML removed
 
 
 # `@app.route buy` removed, completely useless.
