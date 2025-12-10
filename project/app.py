@@ -61,6 +61,14 @@ def add():
 
 # I've removed the `@app.route history` file; I'm going to create a new, completely different one.
 
+@app.route("/complete", methods=["POST"])
+@login_required
+def complete():
+    habit_id = request.form.get("habit_id") #takes the habit id sent via post by index.
+
+    db.execute("INSET INTO history (habit_id) VALUES (?)", habit_id)
+    
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
