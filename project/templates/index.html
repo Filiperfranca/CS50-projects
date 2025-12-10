@@ -6,4 +6,20 @@
 
 {% block main %}
     <h1>My Habits</h1>
+    <table table-striped> <!-- bootstrap class-->
+        <thead>
+            <tr>
+                <th>habits</th>
+                <th>action</th> <!--for the check buttons-->
+            </tr>
+        </thead>
+        <tbody>
+            {% for habit in habits} <!--Jinja loop to load all tasks-->
+                <tr>
+                    <td>{{ habit.name }}</td> 
+                    <td>botão aqui</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
