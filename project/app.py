@@ -36,7 +36,7 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     # Original index deleted to create a completely new one.
-    user_habits = db.execute("""SELECT * FROM habits WHERE user_id = ? AND id NOT IN (SELECT habit_id FROM history)""", session["user_id"]) #we pull user-created habits
+    user_habits = db.execute("""SELECT * FROM habits WHERE user_id = ? AND id NOT IN (SELECT habit_id FROM history)""", session["user_id"]) #We extracted user-created habits by filtering for those that were not completed, since all completed habits have their IDs in the history table.
 
     return render_template("index.html", habits=user_habits) # Python variables for HTML from the finance project removed, now added those from habit. Another syntax problem, when I wrote it, the 's' was missing at the end of habit's', and the comma after "index.html"
 
