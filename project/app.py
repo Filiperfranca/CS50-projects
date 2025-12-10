@@ -41,7 +41,9 @@ def index():
 @app.route("/add", methods=["GET", "POST"]) #as we are dealing with a form we need the POST route
 @login_required # only with logged in user
 def add():
-
+    # If the user sent the form (POST)
+    if request.method == "POST":
+        
 
 # `@app.route buy` removed, completely useless.
 
