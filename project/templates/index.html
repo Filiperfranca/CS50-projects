@@ -17,7 +17,11 @@
             {% for habit in habits %} <!--Jinja loop to load all tasks, another bug I faced due to syntax, I forgot the % to close the command-->
                 <tr>
                     <td>{{ habit.name }}</td> <!--'name' is the name in the column saved in SQL that can be accessed by the variable sent by the backend, not directly in SQL, but it was saved in the variable so we can-->
-                    <td>botão aqui</td>
+                    <td>
+                        <form action="/complete" method="post">
+                            
+                        </form>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
