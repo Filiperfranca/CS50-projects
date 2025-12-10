@@ -66,64 +66,10 @@ def index():
     return render_template("index.html", stocks=portfolio, cash=user_cash, total=grand_total)
 
 
-@app.route("/buy", methods=["GET", "POST"])
-@login_required
-def buy():
-    if request.method == "POST":
-        symbol = request.form.get("symbol")
-        sharesStr = request.form.get("shares")
-
-        if not symbol:
-            return apology("place a symbol")
-        quote = lookup(symbol)
-        if quote is None:
-            return apology("Invalid symbol")
-
-        if not sharesStr:
-            return apology("choose a number of shares")
-        try:
-            shares = int(sharesStr)
-            if shares <= 0:
-                return apology("Your action number cannot be 0")
-        except ValueError:
-            return apology("Enter a valid value for the shares.")
-
-        saldo = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-        saldoUser = saldo[0]["cash"]
-
-        price = quote["price"]
-
-        custo = (price * shares)
-
-        if saldoUser < custo:
-            return apology ("Not enough cash")
-        else:
-            db.execute("UPDATE users SET cash = cash - ? WHERE id = ?", custo, session["user_id"])
-
-            db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (?, ?, ?, ?)", session["user_id"], symbol, shares, price)
-
-        return redirect("/")
-
-    return render_template("buy.html")
+# `@app.route buy` removed, completely useless.
 
 
-@app.route("/history")
-@login_required
-def history():
-    """Show history of transactions"""
-    linhas = db.execute("SELECT * FROM transactions WHERE user_id = ? ORDER BY timestamp DESC", session["user_id"])
-    history = []
-
-    for linha in linhas:
-
-        history.append({
-            "symbol": linha["symbol"],
-            "shares": linha["shares"],
-            "price": linha["price"],
-            "date": linha["timestamp"]
-        })
-
-    return render_template("history.html", transactions=history)
+# I've removed the `@app.route history` file; I'm going to create a new, completely different one.
 
 
 @app.route("/login", methods=["GET", "POST"])
