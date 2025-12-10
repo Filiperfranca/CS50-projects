@@ -18,7 +18,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# Configure CS50 Library to use SQLite database
+# First code change: we need to connect to the correct database.
 db = SQL("sqlite:///habitos.db")
 
 
