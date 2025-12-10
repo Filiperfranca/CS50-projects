@@ -48,7 +48,7 @@ def add():
         if not habit:
             return apology("you cannot send an empty habit") # if the habit was sent empty
 
-        db.execute("INSET INTO habits (user_id, name) VALUES (?, ?)", session["user_id"], habit) # sending the habit to the database
+        db.execute("INSERT INTO habits (user_id, name) VALUES (?, ?)", session["user_id"], habit) # sending the habit to the database, 
 
         return redirect("/") # go to home page after create a new habit
 
