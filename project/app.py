@@ -38,8 +38,8 @@ def index():
     # Original index deleted to create a completely new one.
     return render_template("index.html") # Python variables for HTML removed
 
-@app.route("/add", methods=["GET", "POST"]) #
-@login_required
+@app.route("/add", methods=["GET", "POST"]) #as we are dealing with a form we need the POST route
+@login_required # only with logged in user
 def add():
 
 
