@@ -36,7 +36,8 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     # Original index deleted to create a completely new one.
-    user_habits = db.execute("SELECT * FROM habits WHERE user_id = ?", session["user_id"]) #
+    user_habits = db.execute("SELECT * FROM habits WHERE user_id = ?", session["user_id"]) #we pull user-created habits
+    
     return render_template("index.html") # Python variables for HTML removed
 
 @app.route("/add", methods=["GET", "POST"]) #as we are dealing with a form we need the POST route
