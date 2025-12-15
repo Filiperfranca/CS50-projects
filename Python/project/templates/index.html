@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    my habits <!-- Changed, of course, to my habits. -->
+{% endblock %}
+
+{% block main %}
+    <h1>My Habits</h1>
+    <table  class=table-striped> <!-- bootstrap class-->
+        <thead>
+            <tr>
+                <th>habits</th>
+                <th>action</th> <!--for the check buttons-->
+            </tr>
+        </thead>
+        <tbody>
+            {% for habit in habits %} <!--Jinja loop to load all tasks, another bug I faced due to syntax, I forgot the % to close the command-->
+                <tr>
+                    <td>{{ habit.name }}</td> <!--'name' is the name in the column saved in SQL that can be accessed by the variable sent by the backend, not directly in SQL, but it was saved in the variable so we can-->
+                    <td>
+                        <form action="/complete" method="post"> <!--send the post request to the complete route in python, not index-->
+                            <input type="hidden" name="habit_id" value="{{ habit.id }}"> <!--hidden input so that only the button appears, and then if clicked it sends the id of the selected habit to complete the task of completing-->
+                            <button class="btn btn-success btn-sm" type="submit">check</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

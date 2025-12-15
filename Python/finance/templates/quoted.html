@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<table>
+    <caption>Quota information</caption>
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ quote.symbol }}</td>
+            <td>{{ quote.name }}</td>
+            <td>{{ quote.price | usd }}</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

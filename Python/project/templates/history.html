@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    history
+{% endblock %}
+
+<!--
+    This entire page takes with it the
+    entire index.html base, with the removal of course, of the POST form to the /complete route,
+    replacing the last formula in which the check button was located with the jinja variable of the habit creation date
+    sent via the /history route in app.py
+-->
+{% block main %}
+    <h1>history</h1>
+    <table  class=table-striped>
+        <thead>
+            <tr>
+                <th>habits</th>
+                <th>date completed</th> <!--for the check buttons-->
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in history %}
+                <tr>
+                    <td>{{ entry.name }}</td>
+                    <td>{{ entry.date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
